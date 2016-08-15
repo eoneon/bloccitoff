@@ -1,2 +1,11 @@
 <h1>View: users#show</h1>
 <p><%= @user.email %></p>
+
+<h3>Items</h3>
+
+<h3>Add a item</h3>
+<%= render 'items/form', user: @user, item: Item.new %>
+
+<% @user.items.each do |item| %>
+  <%= render item %>
+<% end %>
