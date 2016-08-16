@@ -1,12 +1,19 @@
-require 'random_data'
+require 'faker'
 
 5.times do
-  User.create!(
-    email:    RandomData.random_email,
-    password: RandomData.random_sentence
+  user = User.create!(
+      email:    Faker::Internet.email,
+      password: 'password'
     )
+
+  5.times do
+    user.items.create!(
+      name: Faker::Lorem.word
+      )
+  end
 end
-users = User.all
+
+user = User.all
 
 puts "Seed finished"
 puts "#{User.count} users created"
