@@ -5,6 +5,6 @@
 <%= render 'items/form', user: @user, item: Item.new %>
 
 <h3>Item list</h3>
-<% @user.items.each do |item| %>
-  <%= render item %>
-<% end %>
+  <ul class="list-group">
+    <%= render @user.items %>
+  </ul>
