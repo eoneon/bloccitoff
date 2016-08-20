@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
-  before_action :authorize_user, only: :show
+  # before_action :authorize_user, only: :show
 
   def show
-    @user = current_user
-    @items = @user.items
+    if params[:id].present?
+      @user =  User.find(params[:id])
+    else
+      @user = current_user
+      @items = @user.items
+    end
   end
 
   private

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'items/create'
-
-  get 'users/show'
 
   devise_for :users
 
@@ -9,7 +6,7 @@ Rails.application.routes.draw do
     resources :items, only: [:create, :destroy]
   end
 
-  get '/token' => 'home#token', as: :token
+  # get '/token' => 'home#token', as: :token
 
   resources :home, only: :index
 
